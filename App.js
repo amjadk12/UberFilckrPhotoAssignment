@@ -2,11 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableWithoutFeedback, Dimensions, Modal } from "react-native";
 import { ImageElements } from "./Component/ImageElements";
 import { Header } from "./Component/Header";
-import img from "./assets/img";
 export default class App extends React.Component {
   state = {
-    modalVisisble:false,
-    modalImage: require('./assets/img'),
     imageelements: [
       {
         source: "./assets/img/img1.jpg",
@@ -37,12 +34,6 @@ export default class App extends React.Component {
       }
     ]
   };
-
-  setModalVisible(visible, imagekey){
-    this.setState({modalImage: this.state.images[imagekey]});
-    this.setState({modalVisisble: visible})
-    ;
-  }
 
   handleNewImageElement = () => {
     const imageelement = {

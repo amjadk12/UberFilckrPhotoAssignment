@@ -31,11 +31,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.35,
     alignItems: "center",
     justifyContent: "center"
-  },
-  image:{
-      flex:1,
-      width:null,
-      alignSelf:"stretch"
   }
 });
 export default ImageElements;
