@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
-import { Quotes } from "./Component/Quotes";
+import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableWithoutFeedback, Dimensions, Modal } from "react-native";
+import { ImageElements } from "./Component/ImageElements";
 import { Header } from "./Component/Header";
 export default class App extends React.Component {
   state = {
-    quotes: [
+    imageelements: [
       {
         id: 1,
         value: "Always think BIG, as thoughts does not have any limits!",
@@ -26,20 +26,20 @@ export default class App extends React.Component {
     ]
   };
 
-  handleNewQuote = () => {
-    const quote = {
+  handleNewImageElement = () => {
+    const imageelement = {
       id: 6,
       value: "Humne tumko dekha.. aap ke mobile mein!",
       auth: "Faizaan Khan"
     };
-    let quotes = this.state.quotes.concat(quote);
-    this.setState({ quotes });
+    let imageelements = this.state.imageelements.concat(imageelement);
+    this.setState({ imageelements });
   };
   render() {
     return (
       <View style={styles.container}>
         <Header />
-        <Quotes quotes={this.state.quotes} onNewQuote={this.handleNewQuote} />
+        <ImageElements imageelements={this.state.imageelements} onNewImageElement={this.handleNewImageElement} />
       </View>
     );
   }
