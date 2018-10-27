@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 
 export class ImageElement extends Component {
   render() {
     return (
        <View style={styles.containerImage}>
-          <Image source={this.props.imgsource} style={styles.innerImage}></Image>
+          <Image source={this.props.imgsource} style={styles.innerImage} resizeMode={'contain'} ></Image>
       </View>
     );
   }
 }
+const win = Dimensions.get('window');
 const styles = StyleSheet.create({
    containerImage: {
     backgroundColor: "blue",
@@ -20,10 +21,9 @@ const styles = StyleSheet.create({
   },
   innerImage: {
     backgroundColor: "gray",
-    alignItems: "center",
-    justifyContent: "center",
     padding: 10,
-    width:"60%"
+    width: win.width/3,
+    height: win.height/7,
   }
   });
 export default ImageElement;
