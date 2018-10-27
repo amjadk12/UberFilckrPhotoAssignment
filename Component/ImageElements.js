@@ -6,7 +6,7 @@ export class ImageElements extends Component {
   render() {
     const { imageelements, onNewImageElement } = this.props;
     return (
-      <ScrollView>
+      <ScrollView style={styles.bottomItems}>
         {imageelements.map(imageelement => (
           <ImageElement
             imgsource={imageelement.source}
@@ -24,13 +24,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#859a9b",
     borderRadius: 30,
     padding: 10,
-    marginBottom: 20,
+    marginBottom: 10,
     shadowColor: "#303838",
     shadowOffset: { width: 0, height: 5 },
     shadowRadius: 20,
     shadowOpacity: 0.35,
     alignItems: "center",
     justifyContent: "center"
+  },
+  bottomItems:{
+    width:'50%',
+    padding:5,
+    backgroundColor: "pink"
   }
 });
 export default ImageElements;

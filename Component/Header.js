@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ccc"
   },
   cart: {
-    width: 40,
-    height: 40
+    width: 25,
+    height: 25
   },
   logo: {
     fontSize: 20,

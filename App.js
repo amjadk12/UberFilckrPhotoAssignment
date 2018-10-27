@@ -6,38 +6,38 @@ export default class App extends React.Component {
   state = {
     imageelements: [
       {
-        source: "./assets/img/img1.jpg",
+        source: require("./assets/img/img1.jpg"),
       },
       {
-        source: "./assets/img/img2.jpg",
+        source: require("./assets/img/img2.jpg"),
       },
       {
-        source: "./assets/img/img3.jpg",
+        source: require("./assets/img/img3.jpg"),
       },
       {
-        source: "./assets/img/img4.jpg",
+        source: require("./assets/img/img4.jpg"),
       },
       {
-        source: "./assets/img/img5.jpg",
+        source: require("./assets/img/img5.jpg"),
       },
       {
-        source: "./assets/img/img6.jpg",
+        source: require("./assets/img/img6.jpg"),
       },
       {
-        source: "./assets/img/img7.jpg",
+        source: require("./assets/img/img7.jpg"),
       },
       {
-        source: "./assets/img/img8.jpg",
+        source: require("./assets/img/img8.jpg"),
       },
       {
-        source: "./assets/img/img9.jpg",
+        source: require("./assets/img/img9.jpg"),
       }
     ]
   };
 
   handleNewImageElement = () => {
     const imageelement = {
-      source: "./assets/img/img10.jpg"
+      source: require("./assets/img/img10.jpg")
     };
     let imageelements = this.state.imageelements.concat(imageelement);
     this.setState({ imageelements });
@@ -46,7 +46,9 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Header />
+        <View style={styles.bottom}>
         <ImageElements imageelements={this.state.imageelements} onNewImageElement={this.handleNewImageElement} />
+        </View>
       </View>
     );
   }
@@ -57,6 +59,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 2
+  },
+  bottom:{
+    height:'80%',
+    backgroundColor:"red",
+    flexDirection:'row',
+    flexWrap:'wrap',
+    padding:5
   }
 });
