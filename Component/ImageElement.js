@@ -14,15 +14,19 @@ const win = Dimensions.get('window');
 const styles = StyleSheet.create({
    containerImage: {
     backgroundColor: "blue",
-    width: win.width/3.2,
+    width: win.width/3.4,
     height: win.height/7,
-    padding:5
+    padding:2,
+    alignItems: "center",
+    justifyContent: "center"
   },
   innerImage: {
     backgroundColor: "#fff",
-    padding: 10,
+    padding: 2,
     width: win.width/3.5,
-    height: win.height/7
+    height: win.height/7.2,
+    alignItems: "center",
+    justifyContent: "center"
   }
   });
 export default ImageElement;

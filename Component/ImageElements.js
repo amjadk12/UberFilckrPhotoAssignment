@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
    },
   listItems:{
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
+    flexWrap:'wrap'
   }
 });
 export default ImageElements;
