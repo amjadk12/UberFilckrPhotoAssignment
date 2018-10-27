@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { ScrollView,View, Text, TouchableOpacity, StyleSheet,Dimensions } from "react-native";
 import { ImageElement } from "./ImageElement";
 
 export class ImageElements extends Component {
@@ -7,18 +7,25 @@ export class ImageElements extends Component {
     const { imageelements, onNewImageElement } = this.props;
     return (
       <ScrollView style={styles.bottomItems}>
-        {imageelements.map(imageelement => (
+        <View style={styles.listItems}>
+        {
+          imageelements.map(() =>imageelements.splice(0,3).filter(imageelement    =>imageelement).map(imageelement => (
           <ImageElement
             imgsource={imageelement.source}
+            style={styles.bottomItem}
           />
-        ))}
-        <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
+        )
+        ))
+        }
+        </View>
+         <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
           <Text>Add New ImageElement</Text>
         </TouchableOpacity>
       </ScrollView>
     );
   }
 }
+const win = Dimensions.get('window');
 const styles = StyleSheet.create({
   button: {
     backgroundColor: "#859a9b",
@@ -33,9 +40,12 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   bottomItems:{
-    width:'50%',
     padding:5,
-    backgroundColor: "pink"
+    backgroundColor: "pink",
+   },
+  listItems:{
+    flex: 1,
+    flexDirection: "row"
   }
 });
 export default ImageElements;

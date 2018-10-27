@@ -64,9 +64,8 @@ const styles = StyleSheet.create({
   },
   bottom:{
     height:'80%',
+    width: '100%',
     backgroundColor:"red",
-    flexDirection:'row',
-    flexWrap:'wrap',
     padding:5
   }
 });
