@@ -2,35 +2,51 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableWithoutFeedback, Dimensions, Modal } from "react-native";
 import { ImageElements } from "./Component/ImageElements";
 import { Header } from "./Component/Header";
+import img from "./assets/img";
 export default class App extends React.Component {
   state = {
+    modalVisisble:false,
+    modalImage: require('./assets/img'),
     imageelements: [
       {
-        id: 1,
-        value: "Always think BIG, as thoughts does not have any limits!",
-        auth: "Amjad Khan"
-      },
-      { id: 2, value: "World is full of fun!", auth: "Charles S. P. Teresa" },
-      { id: 3, value: "Test is life of Eater!", auth: "David Johnson" },
-      {
-        id: 4,
-        value: "Expo is testing utility - Snack.expo.io",
-        auth: "Expo Company"
+        source: "./assets/img/img1.jpg",
       },
       {
-        id: 5,
-        value:
-          "Empower every person and every organisation on this planet  to achieve more",
-        auth: "Satya Nadella"
+        source: "./assets/img/img2.jpg",
+      },
+      {
+        source: "./assets/img/img3.jpg",
+      },
+      {
+        source: "./assets/img/img4.jpg",
+      },
+      {
+        source: "./assets/img/img5.jpg",
+      },
+      {
+        source: "./assets/img/img6.jpg",
+      },
+      {
+        source: "./assets/img/img7.jpg",
+      },
+      {
+        source: "./assets/img/img8.jpg",
+      },
+      {
+        source: "./assets/img/img9.jpg",
       }
     ]
   };
 
+  setModalVisible(visible, imagekey){
+    this.setState({modalImage: this.state.images[imagekey]});
+    this.setState({modalVisisble: visible})
+    ;
+  }
+
   handleNewImageElement = () => {
     const imageelement = {
-      id: 6,
-      value: "Humne tumko dekha.. aap ke mobile mein!",
-      auth: "Faizaan Khan"
+      source: "./assets/img/img10.jpg"
     };
     let imageelements = this.state.imageelements.concat(imageelement);
     this.setState({ imageelements });

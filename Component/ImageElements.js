@@ -9,9 +9,7 @@ export class ImageElements extends Component {
       <ScrollView>
         {imageelements.map(imageelement => (
           <ImageElement
-            ImageElementId={imageelement.id}
-            ImageElementText={imageelement.value}
-            ImageElementAuthor={imageelement.auth}
+            imgsource={imageelement.source}
           />
         ))}
         <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
@@ -33,6 +31,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.35,
     alignItems: "center",
     justifyContent: "center"
+  },
+  image:{
+      flex:1,
+      width:null,
+      alignSelf:"stretch"
   }
 });
 export default ImageElements;
