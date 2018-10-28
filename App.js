@@ -36,24 +36,29 @@ export default class App extends React.Component {
     ]
   };
   handleNewImageElement = () => {
-    const imageelement = {
-      source: require("./assets/img/img10.jpg")
-    };
-    let imageelements = this.state.imageelements.concat(imageelement);
-    this.setState({ imageelements });
-  };
-  componentDidMount(){
-    axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=true") 
+    // const imageelement = {
+    //   source: require("./assets/img/img10.jpg")
+    // };
+    // let imageelements = this.state.imageelements.concat(imageelement);
+    // this.setState({ imageelements });
+  let imageelements=this.state.imageelements;
+  axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=true") 
   .then((response) => {
-    alert(response.data.items.media.m);
-    this.setState({
-      imageelement: response.data.items.media.m
-    })
+    const items= response.data.items;
+    const urlList= items.map(items=>{
+      const imageelement = `{
+       source: require("${items.media.m}")
+     }`;
+     imageelements = this.state.imageelements.concat(imageelement);
+    });
+    alert(imageelements);
+    this.setState({ imageelements:imageelements });
   })
   .catch((err) => {
   console.log(err)
   })
-  }
+  };
+  
   render() {
     return (
       <View style={styles.container}>

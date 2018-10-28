@@ -9,13 +9,13 @@ export class ImageElements extends Component {
       <ScrollView style={styles.bottomItems}>
         <View style={styles.listItems}>
         {
-          imageelements.map(() =>imageelements.splice(0,3).filter(imageelement    =>imageelement).map(imageelement => (
+          imageelements.map(imageelement => (
           <ImageElement
             imgsource={imageelement.source}
             style={styles.bottomItem}
           />
         )
-        ))
+        )
         }
         </View>
          <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   bottomItems:{
     padding:5,
     backgroundColor: "pink",
+    alignItems: "center"
    },
   listItems:{
     flex: 1,
