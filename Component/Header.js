@@ -5,7 +5,7 @@ export class Header extends Component {
   constructor(props){
     super(props);
     this.state = {
-      textSearch:"kittens"
+      textSearch:"kitten"
     }
   }
 
@@ -19,17 +19,16 @@ export class Header extends Component {
     let { onNewImageElement, onUpdate } = this.props;
     return (
       <View style={styles.header}>
-        <Image
-          source={require("../assets/search.png")}
-          style={styles.cart}
-        />
       <TextInput
-        style={styles.logo}
+        style={styles.searchInput}
         onChangeText={this.update}
         value={this.state.textSearch}
       />
          <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
-          <Text>Search</Text>
+           <Image
+          source={require("../assets/search.png")}
+          style={styles.searchControl}
+        />
         </TouchableOpacity>
       </View>
     );
@@ -37,38 +36,34 @@ export class Header extends Component {
 }
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#859a9b",
-    borderRadius: 30,
     padding: 10,
-    marginBottom: 10,
-    shadowColor: "#303838",
-    shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 20,
-    shadowOpacity: 0.35,
+    marginBottom: 20,
     alignItems: "center",
     justifyContent: "center"
   },
   header: {
-    height: "14%",
-    marginTop: 20,
+    height: "10%",
+    marginTop: 10,
     backgroundColor: "#fff",
     flexDirection: "row",
     alighnItem: "center",
     justifyContent: "center",
-    padding: 20,
-    borderBottomWidth: 4,
+    padding: 5,
+    borderBottomWidth: 10,
     borderBottomColor: "#ccc"
   },
-  cart: {
+  searchControl: {
     width: 25,
     height: 25
   },
-  logo: {
+  searchInput: {
     fontStyle: "italic",
     height: 30,
     width: "50%", 
     borderColor: 'gray', 
-    borderWidth: 1
+    borderWidth: 1,
+    marginBottom: 20,
+    padding:7
   }
 });
 export default Header;
