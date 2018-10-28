@@ -2,12 +2,21 @@ import React, { Component } from "react";
 import { StyleSheet, Image, View, Text,TextInput,TouchableOpacity } from "react-native";
 
 export class Header extends Component {
-  state = {
-      text:"kittens"
+  constructor(props){
+    super(props);
+    this.state = {
+      textSearch:"kittens"
     }
+  }
+
+  update = (e) => {
+    this.props.onUpdate(e);
+    this.setState({textSearch: e});
+  };
+
+  
   render() {
-    let { onNewImageElement, textSearch } = this.props;
-    textSearch=this.state.text;
+    let { onNewImageElement, onUpdate } = this.props;
     return (
       <View style={styles.header}>
         <Image
@@ -16,13 +25,11 @@ export class Header extends Component {
         />
       <TextInput
         style={styles.logo}
-        onChangeText={
-          (text) => this.setState({text})
-          }
-        value={this.state.text}
+        onChangeText={this.update}
+        value={this.state.textSearch}
       />
          <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
-          <Text>Search - {textSearch}</Text>
+          <Text>Search</Text>
         </TouchableOpacity>
       </View>
     );

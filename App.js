@@ -4,8 +4,10 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableWithoutFeedba
 import { ImageElements } from "./Component/ImageElements";
 import { Header } from "./Component/Header";
 export default class App extends React.Component {
-  state = {
-    textSearch:'nyc',
+  constructor(props) {
+    super(props);
+  this.state = {
+    textSearch:'kittens',
   items: [
             {
             title: "Bright Like A Shadow. # 120",
@@ -23,6 +25,7 @@ export default class App extends React.Component {
             }
           ]
     };
+  }
     componentDidMount(){
       const url=`https://api.flickr.com/services/feeds/photos_public.gne?tags=${this.state.textSearch}&format=json&nojsoncallback=true`;
       axios.get(url) 
@@ -35,14 +38,10 @@ export default class App extends React.Component {
       })  
     }
     handleNewImageElement = (event) => {
-      // const imageelement = {
-      //   source: require("./assets/img/img10.jpg")
-      // };
-      // let imageelements = this.state.imageelements.concat(imageelement);
-      // this.setState({ imageelements });
-      alert(this.props.textSearch);
     let imageelements=this.state.imageelements;
-    axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&format=json&nojsoncallback=true") 
+    const url=`https://api.flickr.com/services/feeds/photos_public.gne?tags=${this.state.textSearch}&format=json&nojsoncallback=true`;
+    alert(url);
+    axios.get(url) 
     .then((response) => {
       const items= response.data.items;
       this.setState({ items:items });
@@ -51,11 +50,19 @@ export default class App extends React.Component {
     console.log(err)
     })
     };
+
+    onUpdate = (val) => {
+    this.setState({
+      textSearch: val
+    })
+  };
+
+
   
   render() {
     return (
       <View style={styles.container}>
-        <Header  onNewImageElement={this.handleNewImageElement} textSearch={this.props.textSearch} />
+        <Header  onNewImageElement={this.handleNewImageElement} onUpdate={this.onUpdate} />
         <View style={styles.bottom}>
         <ImageElements imageelements={this.state.items} />
         </View>
