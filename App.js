@@ -7,33 +7,34 @@ export default class App extends React.Component {
   state = {
     imageelements: [
       {
-        source: require("./assets/img/img1.jpg"),
+        source: "https://farm2.staticflickr.com/1938/45589352891_ec71973133_m.jpg"
       },
       {
-        source: require("./assets/img/img2.jpg"),
+        source: "https://farm2.staticflickr.com/1925/45589487931_70f817c421_m.jpg",
       },
       {
-        source: require("./assets/img/img3.jpg"),
+      source: "https://farm2.staticflickr.com/1932/43767662360_9ed9086f0d_m.jpg"
       },
       {
-        source: require("./assets/img/img4.jpg"),
-      },
-      {
-        source: require("./assets/img/img5.jpg"),
-      },
-      {
-        source: require("./assets/img/img6.jpg"),
-      },
-      {
-        source: require("./assets/img/img7.jpg"),
-      },
-      {
-        source: require("./assets/img/img8.jpg"),
-      },
-      {
-        source: require("./assets/img/img9.jpg"),
+        source: "https://farm2.staticflickr.com/1917/45586196091_3b365468cb_m.jpg"
       }
-    ]
+    ],
+items: [
+{
+title: "Bright Like A Shadow. # 120",
+link: "https://www.flickr.com/photos/135519402@N07/45589352891/",
+media: {
+m: "https://farm2.staticflickr.com/1938/45589352891_ec71973133_m.jpg"
+}
+},
+{
+title: "Tangie and Little Lady Grey, Sisters on the dorrstep they were born under!",
+link: "https://www.flickr.com/photos/brit_robin/45589487931/",
+media: {
+m: "https://farm2.staticflickr.com/1925/45589487931_70f817c421_m.jpg"
+}
+}
+]
   };
   handleNewImageElement = () => {
     // const imageelement = {
@@ -45,14 +46,7 @@ export default class App extends React.Component {
   axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=true") 
   .then((response) => {
     const items= response.data.items;
-    const urlList= items.map(items=>{
-      const imageelement = `{
-       source: require("${items.media.m}")
-     }`;
-     imageelements = this.state.imageelements.concat(imageelement);
-    });
-    alert(imageelements);
-    this.setState({ imageelements:imageelements });
+    this.setState({ items:items });
   })
   .catch((err) => {
   console.log(err)
@@ -64,7 +58,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Header />
         <View style={styles.bottom}>
-        <ImageElements imageelements={this.state.imageelements} onNewImageElement={this.handleNewImageElement} />
+        <ImageElements imageelements={this.state.items} onNewImageElement={this.handleNewImageElement} />
         </View>
       </View>
     );

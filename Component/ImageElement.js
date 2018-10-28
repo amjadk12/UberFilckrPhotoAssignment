@@ -5,7 +5,7 @@ export class ImageElement extends Component {
   render() {
     return (
        <View style={styles.containerImage}>
-          <Image source={this.props.imgsource} style={styles.innerImage} resizeMode={'contain'} ></Image>
+          <Image source={{uri:this.props.imgsource}} style={styles.innerImage} resizeMode={'contain'} alt="no image"></Image>
       </View>
     );
   }
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     padding:2,
     alignItems: "center",
     justifyContent: "center"
+
   },
   innerImage: {
     backgroundColor: "#fff",

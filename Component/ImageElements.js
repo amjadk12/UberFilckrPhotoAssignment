@@ -11,7 +11,7 @@ export class ImageElements extends Component {
         {
           imageelements.map(imageelement => (
           <ImageElement
-            imgsource={imageelement.source}
+            imgsource={imageelement.media.m}
             style={styles.bottomItem}
           />
         )
