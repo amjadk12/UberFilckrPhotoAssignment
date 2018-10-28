@@ -13,19 +13,19 @@ export class ImageElement extends Component {
 const win = Dimensions.get('window');
 const styles = StyleSheet.create({
    containerImage: {
-    backgroundColor: "blue",
-    width: win.width/3.4,
+    backgroundColor: "#292929",
+    width: (win.width/3)-8,
     height: win.height/7,
-    padding:2,
+    padding:1,
     alignItems: "center",
     justifyContent: "center"
 
   },
   innerImage: {
     backgroundColor: "#fff",
-    padding: 2,
+    padding: 1,
     width: win.width/3.5,
-    height: win.height/7.2,
+    height: (win.height/7) -8,
     alignItems: "center",
     justifyContent: "center"
   }

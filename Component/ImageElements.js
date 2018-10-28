@@ -27,7 +27,7 @@ const win = Dimensions.get('window');
 const styles = StyleSheet.create({
   bottomItems:{
     padding:5,
-    backgroundColor: "pink",
+    backgroundColor: "#292929",
     alignItems: "center"
    },
   listItems:{

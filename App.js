@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   bottom:{
     height:'80%',
     width: '100%',
-    backgroundColor:"red",
+    backgroundColor: "#292929",
     padding:5
   }
 });
