@@ -6,7 +6,8 @@ export class Header extends Component {
       text:"kittens"
     }
   render() {
-    const { onNewImageElement } = this.props;
+    let { onNewImageElement, textSearch } = this.props;
+    textSearch=this.state.text;
     return (
       <View style={styles.header}>
         <Image
@@ -20,8 +21,8 @@ export class Header extends Component {
           }
         value={this.state.text}
       />
-         <TouchableOpacity style={styles.button} onPress={onNewImageElement} textSearch={this.state.text}>
-          <Text>Search</Text>
+         <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
+          <Text>Search - {textSearch}</Text>
         </TouchableOpacity>
       </View>
     );

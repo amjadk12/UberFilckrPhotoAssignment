@@ -24,7 +24,8 @@ export default class App extends React.Component {
           ]
     };
     componentDidMount(){
-      axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=true") 
+      const url=`https://api.flickr.com/services/feeds/photos_public.gne?tags=${this.state.textSearch}&format=json&nojsoncallback=true`;
+      axios.get(url) 
       .then((response) => {
         const items= response.data.items;
         this.setState({ items:items });
@@ -39,7 +40,7 @@ export default class App extends React.Component {
       // };
       // let imageelements = this.state.imageelements.concat(imageelement);
       // this.setState({ imageelements });
-      alert(this.state.textSearch);
+      alert(this.props.textSearch);
     let imageelements=this.state.imageelements;
     axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=dogs&format=json&nojsoncallback=true") 
     .then((response) => {
@@ -54,7 +55,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header  onNewImageElement={this.handleNewImageElement} textSearch={this.state.textSearch} />
+        <Header  onNewImageElement={this.handleNewImageElement} textSearch={this.props.textSearch} />
         <View style={styles.bottom}>
         <ImageElements imageelements={this.state.items} />
         </View>
