@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableWithoutFeedback, Dimensions, Modal } from "react-native";
 import { ImageElements } from "./Component/ImageElements";
 import { Header } from "./Component/Header";
@@ -34,7 +35,6 @@ export default class App extends React.Component {
       }
     ]
   };
-
   handleNewImageElement = () => {
     const imageelement = {
       source: require("./assets/img/img10.jpg")
@@ -42,6 +42,18 @@ export default class App extends React.Component {
     let imageelements = this.state.imageelements.concat(imageelement);
     this.setState({ imageelements });
   };
+  componentDidMount(){
+    axios.get("https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json&nojsoncallback=true") 
+  .then((response) => {
+    alert(response.data.items.media.m);
+    this.setState({
+      imageelement: response.data.items.media.m
+    })
+  })
+  .catch((err) => {
+  console.log(err)
+  })
+  }
   render() {
     return (
       <View style={styles.container}>
