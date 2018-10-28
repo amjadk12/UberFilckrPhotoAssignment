@@ -4,13 +4,13 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TouchableWithoutFeedba
 import { ImageElements } from "./Component/ImageElements";
 import { Header } from "./Component/Header";
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  this.state = {
-    textSearch:'kitten',
-  items: []
-    };
-  }
+    constructor(props) {
+      super(props);
+    this.state = {
+      textSearch:'kitten',
+      items: []
+      };
+    }
     componentDidMount(){
       const url=`https://api.flickr.com/services/feeds/photos_public.gne?tags=${this.state.textSearch}&format=json&nojsoncallback=true`;
       axios.get(url) 
@@ -39,7 +39,7 @@ export default class App extends React.Component {
     this.setState({
       textSearch: val
     })
-  };
+    };
 
   render() {
     return (

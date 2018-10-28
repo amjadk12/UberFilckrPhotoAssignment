@@ -56,3 +56,13 @@ https://expo.io/builds/995cf9c4-3645-489a-bf5b-7a5cc6609eaa
 
 Step 8: Upload apk and other details to Google Play Console,
 https://play.google.com/apps/publish/?account=7549602189370880226#KeyManagementPlace:p=com.pickup.ShayeriApp&appid=4974052671569165399
+
+
+Step 9:
+For Running the Test Cases:
+    1. Install the jest to your dev environment by using below command
+        npm i jest --save-dev
+    2. Also install - renderer
+        npm i react-test-renderer
+
+
