@@ -1,22 +1,47 @@
 import React, { Component } from "react";
-import { StyleSheet, Image, View, Text } from "react-native";
+import { StyleSheet, Image, View, Text,TextInput,TouchableOpacity } from "react-native";
 
 export class Header extends Component {
+  state = {
+      text:"kittens"
+    }
   render() {
+    const { onNewImageElement } = this.props;
     return (
       <View style={styles.header}>
         <Image
           source={require("../assets/search.png")}
           style={styles.cart}
         />
-        <Text style={styles.logo}>Flickr images Search App</Text>
+      <TextInput
+        style={styles.logo}
+        onChangeText={
+          (text) => this.setState({text})
+          }
+        value={this.state.text}
+      />
+         <TouchableOpacity style={styles.button} onPress={onNewImageElement} textSearch={this.state.text}>
+          <Text>Search</Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
+  button: {
+    backgroundColor: "#859a9b",
+    borderRadius: 30,
+    padding: 10,
+    marginBottom: 10,
+    shadowColor: "#303838",
+    shadowOffset: { width: 0, height: 5 },
+    shadowRadius: 20,
+    shadowOpacity: 0.35,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   header: {
-    height: 80,
+    height: "14%",
     marginTop: 20,
     backgroundColor: "#fff",
     flexDirection: "row",
@@ -31,10 +56,11 @@ const styles = StyleSheet.create({
     height: 25
   },
   logo: {
-    fontSize: 20,
-    marginLeft: 10,
     fontStyle: "italic",
-    color: "#292929"
+    height: 30,
+    width: "50%", 
+    borderColor: 'gray', 
+    borderWidth: 1
   }
 });
 export default Header;
