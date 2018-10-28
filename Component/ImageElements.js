@@ -4,7 +4,7 @@ import { ImageElement } from "./ImageElement";
 
 export class ImageElements extends Component {
   render() {
-    const { imageelements, onNewImageElement } = this.props;
+    const { imageelements } = this.props;
     return (
       <ScrollView style={styles.bottomItems}>
         <View style={styles.listItems}>
@@ -18,27 +18,13 @@ export class ImageElements extends Component {
         )
         }
         </View>
-         <TouchableOpacity style={styles.button} onPress={onNewImageElement}>
-          <Text>Add New ImageElement</Text>
-        </TouchableOpacity>
+        
       </ScrollView>
     );
   }
 }
 const win = Dimensions.get('window');
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#859a9b",
-    borderRadius: 30,
-    padding: 10,
-    marginBottom: 10,
-    shadowColor: "#303838",
-    shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 20,
-    shadowOpacity: 0.35,
-    alignItems: "center",
-    justifyContent: "center"
-  },
   bottomItems:{
     padding:5,
     backgroundColor: "pink",
