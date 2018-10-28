@@ -31,7 +31,6 @@ Keystore details:
 Path: E:\Source\Assignments\UberFilckrPhotoAssignment\assets\KeyStoreFunApp.jks
 
 Alias: amjadk12
-Psw : z_123
 
 Step 5: (To build the .apk and deploy)
 open two command windows
